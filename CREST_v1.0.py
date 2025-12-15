@@ -8,7 +8,7 @@ if sys.platform.startswith('win'):
         ctypes.WinDLL('user32').ShowWindow(kernel32.GetConsoleWindow(), 0)
 
 #import pyi_splash
-#import cairo
+import cairo
 from time import time, sleep
 from google.cloud import storage
 from tkinter.constants import X

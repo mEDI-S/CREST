@@ -5,4 +5,4 @@ numpy
 google-cloud-storage
 scipy
 matplotlib
-
+pycairo
