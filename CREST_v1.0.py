@@ -1,11 +1,14 @@
-import ctypes
-kernel32 = ctypes.WinDLL('kernel32', use_last_error=True)
-process_array = (ctypes.c_uint8 * 1)()
-num_processes = kernel32.GetConsoleProcessList(process_array, 1)
-if num_processes < 3: ctypes.WinDLL('user32').ShowWindow(kernel32.GetConsoleWindow(), 0)
+import sys
+if sys.platform.startswith('win'):
+    import ctypes
+    kernel32 = ctypes.WinDLL('kernel32', use_last_error=True)
+    process_array = (ctypes.c_uint8 * 1)()
+    num_processes = kernel32.GetConsoleProcessList(process_array, 1)
+    if num_processes < 3:
+        ctypes.WinDLL('user32').ShowWindow(kernel32.GetConsoleWindow(), 0)
 
 #import pyi_splash
-import cairo
+#import cairo
 from time import time, sleep
 from google.cloud import storage
 from tkinter.constants import X
